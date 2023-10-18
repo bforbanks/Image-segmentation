@@ -10,8 +10,8 @@ import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
 
 
-def load():
-    image_raw = imread("./images/gates.jpg")
+def load(image_to_load: str):
+    image_raw = imread("./images/" + image_to_load)
     image_width = 200
     image = rescale(
         image_raw,
