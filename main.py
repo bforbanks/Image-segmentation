@@ -1,4 +1,4 @@
-from image_loader import *
+from image_loader import load_image
 
-image = load("gates.jpg")
+image = load_image("gates.jpg")
 print(image)
