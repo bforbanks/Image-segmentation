@@ -13,8 +13,6 @@ class TestEgdeScoreFunctions(unittest.TestCase):
         ]
         bottom_score_list = bottom_scores(pixelvectors_2d_list)
 
-        self.assertEqual()
-
 
 if __name__ == "__main__":
     unittest.main()

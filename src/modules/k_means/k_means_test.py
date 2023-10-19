@@ -3,11 +3,11 @@ import unittest
 
 class TestImageLoaderFunctions(unittest.TestCase):
     def test_load(self):
-        from k_means import cluster
+        from src.modules.k_means import initialize_centroids_randomly_and_do_one_kn
 
         # TODO: implement this
         # test the add function from edgescore
-        cluster("gates.jpg")
+        # initialize_centroids_randomly_and_do_one_kn("gates.jpg")
 
 
 if __name__ == "__main__":

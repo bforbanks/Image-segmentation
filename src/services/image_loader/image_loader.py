@@ -11,5 +11,5 @@ from mpl_toolkits import mplot3d
 
 
 def load_image(image_to_load: str):
-    image_raw = imread("./images/" + image_to_load)
+    image_raw = imread("./images/" + image_to_load + ".jpg")
     return image_raw
