@@ -1,5 +1,7 @@
 {
     "python.testing.unittestArgs": ["-v", "-t", ".", "-p", "*_test.py"],
     "python.testing.pytestEnabled": false,
-    "python.testing.unittestEnabled": true
+    "python.testing.unittestEnabled": true,
+    "python.testing.debugPort": 50110,
+    "python.testing.autoTestDiscoverOnSaveEnabled": true
 }

@@ -4,7 +4,7 @@ from src.services.image_converter import (
     pixelvectors_1d_and_centroids_to_pixelvectors_2d,
     pixelvectors_1d_and_centroids_to_rgb_2d,
 )
-from src.modules.k_means import *
+from src.modules.k_means import initialize_centroids_randomly_and_do_one_kn
 
 import matplotlib as mpl
 
