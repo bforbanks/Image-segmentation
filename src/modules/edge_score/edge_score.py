@@ -40,7 +40,7 @@ def not_bottom_scores(pixelvector_to_centroids_index, image_shape) -> list[int]:
     return [-1, -3]
 
 
-def total_score(pixelvector_to_centroids_index, image_shape) -> list[int]:
+def total_scores(pixelvector_to_centroids_index, image_shape) -> list[int]:
     """Will use the two scoring functions, and sum them to get the total score for each
 
     Args:
