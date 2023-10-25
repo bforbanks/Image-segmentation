@@ -47,6 +47,7 @@ def not_bottom_scores(pixelvector_to_centroids_index, image_shape, centroid) -> 
     )
     # TODO: implement this function, use the pixelvector_to_centroids_index_2d
 
+
     # example of return. If centroid 0 have have -1 point, and centroid 1 have -3 points, return the following array:
     return [-1, -3]
 
@@ -68,5 +69,10 @@ def total_scores(pixelvector_to_centroids_index, image_shape, centroid) -> list[
     )
     # TODO: implement this function, use the pixelvector_to_centroids_index_2d
 
+    scores = bottom_scores(pixelvector_to_centroids_index, image_shape, centroid)
+    deduction = not_bottom_scores(pixelvector_to_centroids_index,image_shape,centroid)
+    for i in range(centroid-1):
+        scores[i] = scores[i] - deduction[i]
+
     # example of return. If centroid 0 have have 1 total point, and centroid 1 have 2 points, return the following array:
-    return [1, 2]
+    return scores
