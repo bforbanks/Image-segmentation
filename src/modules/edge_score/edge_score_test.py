@@ -44,7 +44,7 @@ class TestEgdeScoreFunctions(unittest.TestCase):
         # | 0  0  0 |
         # +---------+
         self.assertEqual(
-            total_scores(np.array([1, 1, 1, 1, 1, 1, 0, 0, 0]), [3, 3]), [3, -5]
+            total_scores(np.array([1, 1, 1, 1, 1, 1, 0, 0, 0]), [3, 3], 2), [3, -5]
         )
         # test for the following image:
         # +---------+
@@ -53,7 +53,7 @@ class TestEgdeScoreFunctions(unittest.TestCase):
         # | 0  1  0 |
         # +---------+
         self.assertEqual(
-            total_scores(np.array([1, 1, 2, 1, 1, 2, 0, 1, 0]), [3, 3]), [2, -2, -2]
+            total_scores(np.array([1, 1, 2, 1, 1, 2, 0, 1, 0]), [3, 3], 3), [2, -2, -2]
         )
 
 
