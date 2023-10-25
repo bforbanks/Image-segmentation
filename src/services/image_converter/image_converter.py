@@ -19,7 +19,7 @@ def rgb_2d_to_pixelvectors_1d(image_rbg_2d):
         The image in Lab format. Same dimensions as input.
     image_shape :
     """
-    image_width = 3
+    image_width = 200
     image_rgb_2d = rescale(
         image_rbg_2d,
         image_width / image_rbg_2d.shape[0],
