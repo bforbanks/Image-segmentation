@@ -18,11 +18,11 @@ class TestEgdeScoreFunctions(unittest.TestCase):
         )
         # test for the following image:
         # +---------+
-        # | 1  1  2 |
+        # | 1  3  2 |
         # | 1  1  2 |
         # | 0  1  0 |
         # +---------+
-        # shoud return [2, 1, 0] because we have 2 centroid-zeros in the lower row and 1 centroid-one.
+        # shoud return [2, 1, 0, 0] because we have 2 centroid-zeros in the lower row and 1 centroid-one.
         self.assertEqual(
             bottom_scores(np.array([1, 1, 2, 1, 1, 2, 0, 1, 0]), [3, 3]), [2, 1, 0]
         )
