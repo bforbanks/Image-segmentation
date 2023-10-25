@@ -87,7 +87,7 @@ def total_scores(pixelvector_to_centroids_index, image_shape, centroid) -> list[
     # Hereafter a forloop based on the amount of centroids (should be the amount of scores) will change the values in the 'scores'
     # i.e for each score, remove based on the deduction.
 
-    for i in range(centroid-1):
+    for i in range(centroid):
         scores[i] = scores[i] + deduction[i]
 
     # Hereafter return the score, which should be identical to the structure of the previous scoring functions, having relied on them as the only source of information.
