@@ -16,17 +16,15 @@ def bottom_scores(pixelvector_to_centroids_index, image_shape, centroids) -> lis
         image_shape[0], image_shape[1]
     )
     # TODO: implement this function, use the pixelvector_to_centroids_index_2d
-    bottom_array = pixelvector_to_centroids_index[-image_shape[0]:]
+    bottom_array = pixelvector_to_centroids_index[-image_shape[0]:] # creates a list with the bottom values
+    bottom_score = [0] * centroids # sets all elements of list to 0 based on the amount of centroids
 
-    for i in bottom_array:
-        
+    for value in bottom_array:
+        bottom_score[value] += 1
+    
+    return bottom_score
+
     # example of return. If centroid 0 have have 1 point, and centroid 1 have 3 points, return the following array:
-
-
-print(bottom_scores(np.array([1, 1, 1, 1, 1, 1, 0, 0, 0]), [3, 3], 2))
-
-
-
 
 
 
