@@ -1,4 +1,6 @@
-def bottom_scores(pixelvector_to_centroids_index, image_shape) -> list[int]:
+import numpy as np
+
+def bottom_scores(pixelvector_to_centroids_index, image_shape, centroids) -> list[int]:
     """Will give positive score to the centroids that have pixels in the sides and the top.
 
     Args:
@@ -14,9 +16,18 @@ def bottom_scores(pixelvector_to_centroids_index, image_shape) -> list[int]:
         image_shape[0], image_shape[1]
     )
     # TODO: implement this function, use the pixelvector_to_centroids_index_2d
+    bottom_array = pixelvector_to_centroids_index[-image_shape[0]:]
 
+    for i in bottom_array:
+        
     # example of return. If centroid 0 have have 1 point, and centroid 1 have 3 points, return the following array:
-    return [1, 3]
+
+
+print(bottom_scores(np.array([1, 1, 1, 1, 1, 1, 0, 0, 0]), [3, 3], 2))
+
+
+
+
 
 
 def not_bottom_scores(pixelvector_to_centroids_index, image_shape) -> list[int]:
