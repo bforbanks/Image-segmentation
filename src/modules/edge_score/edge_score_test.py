@@ -1,7 +1,7 @@
 import unittest
 import numpy as np
 
-from src.modules.edge_score import bottom_scores, not_bottom_scores, total_scores
+from src.modules.edge_score import bottom_scores, not_bottom_scores, total_edge_scores
 
 
 class TestEgdeScoreFunctions(unittest.TestCase):
@@ -24,7 +24,8 @@ class TestEgdeScoreFunctions(unittest.TestCase):
         # +---------+
         # shoud return [2, 1, 0, 0] because we have 2 centroid-zeros in the lower row and 1 centroid-one.
         self.assertEqual(
-            bottom_scores(np.array([1, 3, 2, 1, 1, 2, 0, 1, 0]), [3, 3], 4), [2, 1, 0, 0]
+            bottom_scores(np.array([1, 3, 2, 1, 1, 2, 0, 1, 0]), [3, 3], 4),
+            [2, 1, 0, 0],
         )
 
     def test_not_bottom_scores(self):
@@ -44,7 +45,7 @@ class TestEgdeScoreFunctions(unittest.TestCase):
         # | 0  0  0 |
         # +---------+
         self.assertEqual(
-            total_scores(np.array([1, 1, 1, 1, 1, 1, 0, 0, 0]), [3, 3], 2), [3, -5]
+            total_edge_scores(np.array([1, 1, 1, 1, 1, 1, 0, 0, 0]), [3, 3], 2), [3, -5]
         )
         # test for the following image:
         # +---------+
@@ -53,7 +54,8 @@ class TestEgdeScoreFunctions(unittest.TestCase):
         # | 0  1  0 |
         # +---------+
         self.assertEqual(
-            total_scores(np.array([1, 1, 2, 1, 1, 2, 0, 1, 0]), [3, 3], 3), [2, -2, -2]
+            total_edge_scores(np.array([1, 1, 2, 1, 1, 2, 0, 1, 0]), [3, 3], 3),
+            [2, -2, -2],
         )
 
 

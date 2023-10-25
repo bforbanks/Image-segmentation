@@ -10,4 +10,4 @@ class cam:
 
     def getCurrentImage(self):
         rval, frame = self.vc.read()
-        return frame
+        return frame[:, :, ::-1]

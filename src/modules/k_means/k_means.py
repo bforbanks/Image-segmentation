@@ -14,7 +14,7 @@ def cluster_assignments(image_pixels, centroids):
     return np.argmin(euclidean_distances(image_pixels, centroids), axis=1)
 
 
-def initialize_centroids_randomly_and_do_one_kn(image_pixels_lab, centroid_count):
+def initialize_centroids_randomly(image_pixels_lab, centroid_count):
     """First
 
     Args:
@@ -25,13 +25,14 @@ def initialize_centroids_randomly_and_do_one_kn(image_pixels_lab, centroid_count
         centroids: text
 
     """
+    np.random.seed(42)
     centroids = np.array(
         [
             image_pixels_lab.mean(0) + (np.random.randn(3) / 10)
             for _ in range(centroid_count)
         ]
     )
-    return do_k_means(image_pixels_lab, centroids, 1)
+    return centroids
 
 
 def do_k_means(image_pixels_lab_1d, centroids, loops):
