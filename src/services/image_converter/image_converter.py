@@ -6,6 +6,7 @@ from skimage.transform import rescale
 from skimage.color import rgb2lab, lab2rgb
 
 
+# All of these are essentialy transformation of vectors
 def rgb_2d_to_pixelvectors_1d(image_rbg_2d):
     """Convert image to the 1d array
 
