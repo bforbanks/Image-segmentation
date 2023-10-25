@@ -24,7 +24,7 @@ class TestEgdeScoreFunctions(unittest.TestCase):
         # +---------+
         # shoud return [2, 1, 0, 0] because we have 2 centroid-zeros in the lower row and 1 centroid-one.
         self.assertEqual(
-            bottom_scores(np.array([1, 3, 2, 1, 1, 2, 0, 1, 0]), [3, 3], 4), [2, 1, 0]
+            bottom_scores(np.array([1, 3, 2, 1, 1, 2, 0, 1, 0]), [3, 3], 4), [2, 1, 0, 0]
         )
 
     def test_not_bottom_scores(self):
