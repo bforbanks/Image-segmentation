@@ -67,10 +67,18 @@ def total_scores(pixelvector_to_centroids_index, image_shape, centroid) -> list[
     )
     # TODO: implement this function, use the pixelvector_to_centroids_index_2d
 
+    # First the function will pull the scores from the bottom_scores and not_bottom_scores functions. 
+    # These will be saved as scores and deduction
+
     scores = bottom_scores(pixelvector_to_centroids_index, image_shape, centroid)
     deduction = not_bottom_scores(pixelvector_to_centroids_index,image_shape,centroid)
+
+    # Hereafter a forloop based on the amount of centroids (should be the amount of scores) will change the values in the 'scores'
+    # i.e for each score, remove based on the deduction.
+
     for i in range(centroid-1):
         scores[i] = scores[i] - deduction[i]
 
+    # Hereafter return the score, which should be identical to the structure of the previous scoring functions, having relied on them as the only source of information.
     # example of return. If centroid 0 have have 1 total point, and centroid 1 have 2 points, return the following array:
     return scores
