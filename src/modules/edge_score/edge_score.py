@@ -30,7 +30,7 @@ print(bottom_scores(np.array([1, 1, 1, 1, 1, 1, 0, 0, 0]), [3, 3], 2))
 
 
 
-def not_bottom_scores(pixelvector_to_centroids_index, image_shape) -> list[int]:
+def not_bottom_scores(pixelvector_to_centroids_index, image_shape, centroid) -> list[int]:
     """Will give negative score to the centroids that have pixels in the sides and the top.
 
     Args:
@@ -51,7 +51,7 @@ def not_bottom_scores(pixelvector_to_centroids_index, image_shape) -> list[int]:
     return [-1, -3]
 
 
-def total_scores(pixelvector_to_centroids_index, image_shape) -> list[int]:
+def total_scores(pixelvector_to_centroids_index, image_shape, centroid) -> list[int]:
     """Will use the two scoring functions, and sum them to get the total score for each
 
     Args:
