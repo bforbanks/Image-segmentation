@@ -59,9 +59,6 @@ def not_bottom_scores(pixelvector_to_centroids_index, image_shape, centroid) -> 
     return not_bottom_score
 
 
-
-print(not_bottom_scores(np.array([1, 1, 1, 1, 1, 1, 0, 0, 0]), [3, 3], 2))
-
 def total_scores(pixelvector_to_centroids_index, image_shape, centroid) -> list[int]:
     """Will use the two scoring functions, and sum them to get the total score for each
 
@@ -85,12 +82,11 @@ def total_scores(pixelvector_to_centroids_index, image_shape, centroid) -> list[
     scores = bottom_scores(pixelvector_to_centroids_index, image_shape, centroid)
     deduction = not_bottom_scores(pixelvector_to_centroids_index,image_shape,centroid)
 
-    # Hereafter a forloop based on the amount of centroids (should be the amount of scores) will change the values in the 'scores'
-    # i.e for each score, remove based on the deduction.
+    bottom_score = bottom_scores(pixelvector_to_centroids_index, image_shape, centroid)
+    not_bottom_score = not_bottom_scores(pixelvector_to_centroids_index, image_shape, centroid)
 
-    for i in range(centroid-1):
-        scores[i] = scores[i] + deduction[i]
+    total_score = np.add(not_bottom_score, bottom_score)
 
     # Hereafter return the score, which should be identical to the structure of the previous scoring functions, having relied on them as the only source of information.
     # example of return. If centroid 0 have have 1 total point, and centroid 1 have 2 points, return the following array:
-    return scores
+    return list(total_score)
