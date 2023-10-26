@@ -14,9 +14,13 @@ import numpy as np
 mpl.rcParams["figure.dpi"] = 100
 import matplotlib.pyplot as plt
 
+image_names = ["altman", "avicii", "dicaprio", "gates", "woman"]
+
 centroid_count = 6
-initial_iterations = 1
-iterations = 10
+initial_k_means_iterations = 10
+after_edgescore_k_means_iterations = 10
+
+iterations_pr_image = 6
 
 
 def main():
@@ -31,11 +35,15 @@ def main():
     im2 = ax2.imshow(np.zeros((300, 300, 3)))
     im3 = ax3.imshow(np.zeros((300, 300, 3)))
     im4 = ax4.imshow(np.zeros((300, 300, 3)))
-    while True:
+    for i in range(0, len(image_names) * iterations_pr_image):
         # load the image
         # image_rgb_2d = my_cam.getCurrentImage()
-        image_rgb_2d, image_shape = rescale_image(load_image("avicii.jpg"), 200)
-        correct_image_rgba_2d, _ = rescale_image(load_image("avicii.png"), 200)
+        image_rgb_2d, image_shape = rescale_image(
+            load_image(f"{image_names[i % len(image_names)]}.jpg"), 200
+        )
+        correct_image_rgba_2d, _ = rescale_image(
+            load_image(f"{image_names[i % len(image_names)]}.png"), 200
+        )
 
         (
             image_pixels_lab_1d,
@@ -45,7 +53,7 @@ def main():
         # initialize centroids and do initial k-means
         centroids = initialize_centroids_randomly(image_pixels_lab_1d, centroid_count)
         (pixelvector_to_centroids_index, centroids) = do_k_means(
-            image_pixels_lab_1d, centroids, initial_iterations
+            image_pixels_lab_1d, centroids, initial_k_means_iterations
         )
 
         # take the edge score and the imge
@@ -67,7 +75,9 @@ def main():
         (
             pixels_to_centroidindex,
             centroids,
-        ) = do_k_means(image_pixels_lab_1d, centroids, iterations)
+        ) = do_k_means(
+            image_pixels_lab_1d, centroids, after_edgescore_k_means_iterations
+        )
 
         # convert the background of this image to pink and keep the foreground as the original color
 
