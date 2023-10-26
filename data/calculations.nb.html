@@ -1757,9 +1757,9 @@ display: none;
 <p>Her har vi 5 observation Indlæs pre data</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkeGwpXG5kYXRhIDwtIHJlYWRfZXhjZWwoXCJDOi9Vc2Vycy9CZW5qYS9kZXYvZHR1L0ltYWdlLXNlZ21lbnRhdGlvbi9kYXRhL2RhdGEueGxzeFwiLCBcbiAgICBzaGVldCA9IFwiSW5pdGlhbFwiLCBjb2xfdHlwZXMgPSBcIm51bWVyaWNcIilcbmBgYCJ9 -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShyZWFkeGwpXG5wcmVEYXRhIDwtIHJlYWRfZXhjZWwoXCJDOi9Vc2Vycy9CZW5qYS9kZXYvZHR1L0ltYWdlLXNlZ21lbnRhdGlvbi9kYXRhL2RhdGEueGxzeFwiLCBcbiAgICBzaGVldCA9IFwiSW5pdGlhbFwiLCBjb2xfdHlwZXMgPSBcIm51bWVyaWNcIilcbmBgYCJ9 -->
 <pre class="r"><code>library(readxl)
-data &lt;- read_excel(&quot;C:/Users/Benja/dev/dtu/Image-segmentation/data/data.xlsx&quot;, 
+preData &lt;- read_excel(&quot;C:/Users/Benja/dev/dtu/Image-segmentation/data/data.xlsx&quot;, 
     sheet = &quot;Initial&quot;, col_types = &quot;numeric&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
@@ -1767,9 +1767,8 @@ data &lt;- read_excel(&quot;C:/Users/Benja/dev/dtu/Image-segmentation/data/data.
 <p>Find gennemsnittet</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbihkYXRhJEFjY3VyYWNjeSlcblxuYGBgIn0= -->
-<pre class="r"><code>mean(data$Accuraccy)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbihwcmVEYXRhJEFjY3VyYWNjeSlcbmBgYCJ9 -->
+<pre class="r"><code>mean(preData$Accuraccy)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuNzYwNDc0MVxuIn0= -->
 <pre><code>[1] 0.7604741</code></pre>
@@ -1779,9 +1778,8 @@ data &lt;- read_excel(&quot;C:/Users/Benja/dev/dtu/Image-segmentation/data/data.
 <p>Find Standard afvigelsen</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2QoZGF0YSRBY2N1cmFjY3kpXG5cbmBgYCJ9 -->
-<pre class="r"><code>sd(data$Accuraccy)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2QocHJlRGF0YSRBY2N1cmFjY3kpXG5gYGAifQ== -->
+<pre class="r"><code>sd(preData$Accuraccy)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiWzFdIDAuMTUwODQ2N1xuIn0= -->
 <pre><code>[1] 0.1508467</code></pre>
@@ -1792,18 +1790,17 @@ data &lt;- read_excel(&quot;C:/Users/Benja/dev/dtu/Image-segmentation/data/data.
 finde ud af hvor mange observationer vi skal have</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG93ZXIudC50ZXN0KHBvd2VyPTAuOCwgZGVsdGEgPSAwLjA1LCBzZCA9IDAuMjE1OTQ3Niwgc2lnLmxldmVsID0gMC45NSlcblxuYGBgIn0= -->
-<pre class="r"><code>power.t.test(power=0.8, delta = 0.05, sd = 0.2159476, sig.level = 0.95)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucG93ZXIudC50ZXN0KHBvd2VyPTAuOCwgZGVsdGEgPSAwLjA1LCBzZCA9IDAuMjE1OTQ3Niwgc2lnLmxldmVsID0gMC4wNSlcbmBgYCJ9 -->
+<pre class="r"><code>power.t.test(power=0.8, delta = 0.05, sd = 0.2159476, sig.level = 0.05)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG4gICAgIFR3by1zYW1wbGUgdCB0ZXN0IHBvd2VyIGNhbGN1bGF0aW9uIFxuXG4gICAgICAgICAgICAgIG4gPSAzMC41MTA4XG4gICAgICAgICAgZGVsdGEgPSAwLjA1XG4gICAgICAgICAgICAgc2QgPSAwLjIxNTk0NzZcbiAgICAgIHNpZy5sZXZlbCA9IDAuOTVcbiAgICAgICAgICBwb3dlciA9IDAuOFxuICAgIGFsdGVybmF0aXZlID0gdHdvLnNpZGVkXG5cbk5PVEU6IG4gaXMgbnVtYmVyIGluICplYWNoKiBncm91cFxuIn0= -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG4gICAgIFR3by1zYW1wbGUgdCB0ZXN0IHBvd2VyIGNhbGN1bGF0aW9uIFxuXG4gICAgICAgICAgICAgIG4gPSAyOTMuNzc5MlxuICAgICAgICAgIGRlbHRhID0gMC4wNVxuICAgICAgICAgICAgIHNkID0gMC4yMTU5NDc2XG4gICAgICBzaWcubGV2ZWwgPSAwLjA1XG4gICAgICAgICAgcG93ZXIgPSAwLjhcbiAgICBhbHRlcm5hdGl2ZSA9IHR3by5zaWRlZFxuXG5OT1RFOiBuIGlzIG51bWJlciBpbiAqZWFjaCogZ3JvdXBcbiJ9 -->
 <pre><code>
      Two-sample t test power calculation 
 
-              n = 30.5108
+              n = 293.7792
           delta = 0.05
              sd = 0.2159476
-      sig.level = 0.95
+      sig.level = 0.05
           power = 0.8
     alternative = two.sided
 
@@ -1828,21 +1825,41 @@ finalData &lt;- read_excel(&quot;C:/Users/Benja/dev/dtu/Image-segmentation/data/
 <p>Find gennemsnittet</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbihkYXRhJEFjY3VyYWNjeSlcbmBgYCJ9 -->
-<pre class="r"><code>mean(data$Accuraccy)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29sTWVhbnMoZmluYWxEYXRhKVxuYGBgIn0= -->
+<pre class="r"><code>colMeans(finalData)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiaW5pdF9rX21lYW5zXzEgaW5pdF9rX21lYW5zXzIgXG4gICAgIDAuNzcxNjIzNSAgICAgIDAuODY0ODQ3NSBcbiJ9 -->
+<pre><code>init_k_means_1 init_k_means_2 
+     0.7716235      0.8648475 </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Find Standard afvigelsen</p>
+<p>T-test af initial_k_means_iterations = 1 og
+initial_k_means_iterations = 2</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2QoZGF0YSRBY2N1cmFjY3kpXG5gYGAifQ== -->
-<pre class="r"><code>sd(data$Accuraccy)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudC50ZXN0KGZpbmFsRGF0YSRpbml0X2tfbWVhbnNfMSwgZmluYWxEYXRhJGluaXRfa19tZWFuc18yKVxuYGBgIn0= -->
+<pre class="r"><code>t.test(finalData$init_k_means_1, finalData$init_k_means_2)</code></pre>
 <!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5cdFdlbGNoIFR3byBTYW1wbGUgdC10ZXN0XG5cbmRhdGE6ICBmaW5hbERhdGEkaW5pdF9rX21lYW5zXzEgYW5kIGZpbmFsRGF0YSRpbml0X2tfbWVhbnNfMlxudCA9IC03LjYxNzIsIGRmID0gNDk4Ljg4LCBwLXZhbHVlID0gMS4zMTJlLTEzXG5hbHRlcm5hdGl2ZSBoeXBvdGhlc2lzOiB0cnVlIGRpZmZlcmVuY2UgaW4gbWVhbnMgaXMgbm90IGVxdWFsIHRvIDBcbjk1IHBlcmNlbnQgY29uZmlkZW5jZSBpbnRlcnZhbDpcbiAtMC4xMTcyNjk3MiAtMC4wNjkxNzgzNFxuc2FtcGxlIGVzdGltYXRlczpcbm1lYW4gb2YgeCBtZWFuIG9mIHkgXG4wLjc3MTYyMzUgMC44NjQ4NDc1IFxuIn0= -->
+<pre><code>
+    Welch Two Sample t-test
+
+data:  finalData$init_k_means_1 and finalData$init_k_means_2
+t = -7.6172, df = 498.88, p-value = 1.312e-13
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.11726972 -0.06917834
+sample estimates:
+mean of x mean of y 
+0.7716235 0.8648475 </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkNhbGN1bGF0aW9ucyBub3RlYm9vayINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCiMjIFByZSBjYWxjdWxhdGlvbnMNCg0KSGVyIGhhciB2aSA1IG9ic2VydmF0aW9uDQpJbmRsw6ZzIHByZSBkYXRhDQpgYGB7ciB3YXJuaW5nPUZBTFNFfQ0KbGlicmFyeShyZWFkeGwpDQpwcmVEYXRhIDwtIHJlYWRfZXhjZWwoIkM6L1VzZXJzL0JlbmphL2Rldi9kdHUvSW1hZ2Utc2VnbWVudGF0aW9uL2RhdGEvZGF0YS54bHN4IiwgDQogICAgc2hlZXQgPSAiSW5pdGlhbCIsIGNvbF90eXBlcyA9ICJudW1lcmljIikNCmBgYA0KDQoNCg0KRmluZCBnZW5uZW1zbml0dGV0DQpgYGB7cn0NCm1lYW4ocHJlRGF0YSRBY2N1cmFjY3kpDQpgYGANCg0KRmluZCBTdGFuZGFyZCBhZnZpZ2Vsc2VuDQpgYGB7cn0NCnNkKHByZURhdGEkQWNjdXJhY2N5KQ0KYGBgDQpPdmVuc3TDpWVuZGUgaW5mb3JtYXRpb24ga2FuIHZpIGJlbnl0dGUgaSBlbiBwb3dlciBhbmFseXNlLCB0aWwgYXQgZmluZGUgdWQgYWYgaHZvciBtYW5nZSBvYnNlcnZhdGlvbmVyIHZpIHNrYWwgaGF2ZQ0KYGBge3J9DQpwb3dlci50LnRlc3QocG93ZXI9MC44LCBkZWx0YSA9IDAuMDUsIHNkID0gMC4yMTU5NDc2LCBzaWcubGV2ZWwgPSAwLjk1KQ0KYGBgDQpEYSB2aSBoYXIgNSwgZm9yc2tlbGxpZ2UgYmlsbGVkZXIsIHbDpmxnZXIgdmkgYXQgbGF2ZSBlbiANCg0KIyMgRmluYWwgY2FsY3VsYXRpb25zDQoNCkluZGzDpnMgZmluYWwgZGF0YQ0KYGBge3Igd2FybmluZz1GQUxTRX0NCmxpYnJhcnkocmVhZHhsKQ0KZmluYWxEYXRhIDwtIHJlYWRfZXhjZWwoIkM6L1VzZXJzL0JlbmphL2Rldi9kdHUvSW1hZ2Utc2VnbWVudGF0aW9uL2RhdGEvZGF0YS54bHN4IiwgDQogICAgc2hlZXQgPSAiRmluYWwiLCBjb2xfdHlwZXMgPSAibnVtZXJpYyIpDQpgYGANCg0KDQoNCkZpbmQgZ2VubmVtc25pdHRldA0KYGBge3J9DQptZWFuKGRhdGEkQWNjdXJhY2N5KQ0KYGBgDQoNCkZpbmQgU3RhbmRhcmQgYWZ2aWdlbHNlbg0KYGBge3J9DQpzZChkYXRhJEFjY3VyYWNjeSkNCmBgYA==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkNhbGN1bGF0aW9ucyBub3RlYm9vayINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNCiMjIFByZSBjYWxjdWxhdGlvbnMNCg0KSGVyIGhhciB2aSA1IG9ic2VydmF0aW9uDQpJbmRsw6ZzIHByZSBkYXRhDQpgYGB7ciB3YXJuaW5nPUZBTFNFfQ0KbGlicmFyeShyZWFkeGwpDQpwcmVEYXRhIDwtIHJlYWRfZXhjZWwoIkM6L1VzZXJzL0JlbmphL2Rldi9kdHUvSW1hZ2Utc2VnbWVudGF0aW9uL2RhdGEvZGF0YS54bHN4IiwgDQogICAgc2hlZXQgPSAiSW5pdGlhbCIsIGNvbF90eXBlcyA9ICJudW1lcmljIikNCmBgYA0KDQoNCg0KRmluZCBnZW5uZW1zbml0dGV0DQpgYGB7cn0NCm1lYW4ocHJlRGF0YSRBY2N1cmFjY3kpDQpgYGANCg0KRmluZCBTdGFuZGFyZCBhZnZpZ2Vsc2VuDQpgYGB7cn0NCnNkKHByZURhdGEkQWNjdXJhY2N5KQ0KYGBgDQpPdmVuc3TDpWVuZGUgaW5mb3JtYXRpb24ga2FuIHZpIGJlbnl0dGUgaSBlbiBwb3dlciBhbmFseXNlLCB0aWwgYXQgZmluZGUgdWQgYWYgaHZvciBtYW5nZSBvYnNlcnZhdGlvbmVyIHZpIHNrYWwgaGF2ZQ0KYGBge3J9DQpwb3dlci50LnRlc3QocG93ZXI9MC44LCBkZWx0YSA9IDAuMDUsIHNkID0gMC4yMTU5NDc2LCBzaWcubGV2ZWwgPSAwLjA1KQ0KYGBgDQpEYSB2aSBoYXIgNSwgZm9yc2tlbGxpZ2UgYmlsbGVkZXIsIHbDpmxnZXIgdmkgYXQgbGF2ZSBlbiANCg0KIyMgRmluYWwgY2FsY3VsYXRpb25zDQoNCkluZGzDpnMgZmluYWwgZGF0YQ0KYGBge3Igd2FybmluZz1GQUxTRX0NCmxpYnJhcnkocmVhZHhsKQ0KZmluYWxEYXRhIDwtIHJlYWRfZXhjZWwoIkM6L1VzZXJzL0JlbmphL2Rldi9kdHUvSW1hZ2Utc2VnbWVudGF0aW9uL2RhdGEvZGF0YS54bHN4IiwgDQogICAgc2hlZXQgPSAiRmluYWwiLCBjb2xfdHlwZXMgPSAibnVtZXJpYyIpDQpgYGANCg0KDQoNCkZpbmQgZ2VubmVtc25pdHRldA0KYGBge3J9DQpjb2xNZWFucyhmaW5hbERhdGEpDQpgYGANClQtdGVzdCBhZiBpbml0aWFsX2tfbWVhbnNfaXRlcmF0aW9ucyA9IDEgb2cgaW5pdGlhbF9rX21lYW5zX2l0ZXJhdGlvbnMgPSAyDQpgYGB7cn0NCnQudGVzdChmaW5hbERhdGEkaW5pdF9rX21lYW5zXzEsIGZpbmFsRGF0YSRpbml0X2tfbWVhbnNfMikNCmBgYA0KDQo=</div>
 
 
 

@@ -17,10 +17,10 @@ import matplotlib.pyplot as plt
 image_names = ["altman", "avicii", "dicaprio", "gates", "woman"]
 
 centroid_count = 6
-initial_k_means_iterations = 10
+initial_k_means_iterations = 2
 after_edgescore_k_means_iterations = 10
 
-iterations_pr_image = 6
+iterations_pr_image = 60
 
 
 def main():
