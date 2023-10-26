@@ -34,8 +34,8 @@ def main():
     while True:
         # load the image
         # image_rgb_2d = my_cam.getCurrentImage()
-        image_rgb_2d, image_shape = rescale_image(load_image("gates.jpg"), 200)
-        correct_image_rgba_2d, _ = rescale_image(load_image("gates.png"), 200)
+        image_rgb_2d, image_shape = rescale_image(load_image("avicii.jpg"), 200)
+        correct_image_rgba_2d, _ = rescale_image(load_image("avicii.png"), 200)
 
         (
             image_pixels_lab_1d,
@@ -82,7 +82,9 @@ def main():
         image_alpha = image_rgba[:, 3]
         correct_image_alpha = correct_image_rgba_2d.reshape(-1, 4)[:, 3]
 
-        incorrect_alpha = np.size(np.where(image_alpha != correct_image_alpha))
+        incorrect_alpha = np.size(
+            np.where(abs(image_alpha - correct_image_alpha) > 0.1)
+        )
         alpha_accuracy = abs(1 - incorrect_alpha / np.size(image_alpha))
         print(alpha_accuracy)
 
