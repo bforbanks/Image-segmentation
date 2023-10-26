@@ -1,0 +1,60 @@
+---
+title: "Calculations notebook"
+author: Benjamin Banks
+date: October 26, 2023,
+output:
+    pdf_document: default
+---
+
+## Pre calculations
+
+In the pre trail we have 20 total obs.
+Load the pre data:
+
+```{r warning=FALSE}
+library(readxl)
+preData <- read_excel("C:/Users/Benja/dev/dtu/Image-segmentation/data/data.xlsx",
+    sheet = "Initial", col_types = "numeric")
+```
+
+The means of them:
+
+```{r}
+mean(preData$Accuraccy)
+```
+
+And the standard deviation
+
+```{r}
+sd(preData$Accuraccy)
+```
+
+We will use the above information in a power analysis, to calcualte how many observations our final experiment requires.
+
+```{r}
+power.t.test(power=0.8, delta = 0.05, sd = 0.2159476, sig.level = 0.05)
+```
+
+So the we will make 300 observations pr. model.
+
+## Final calculations
+
+Load the final data:
+
+```{r warning=FALSE}
+library(readxl)
+finalData <- read_excel("C:/Users/Benja/dev/dtu/Image-segmentation/data/data.xlsx",
+    sheet = "Final", col_types = "numeric")
+```
+
+Find the mean:
+
+```{r}
+colMeans(finalData)
+```
+
+T-test with initial_k_means_iterations = 1 and initial_k_means_iterations = 2
+
+```{r}
+t.test(finalData$init_k_means_1, finalData$init_k_means_2)
+```

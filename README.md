@@ -18,6 +18,13 @@ Run the acutal script by running:
 python main.py
 ```
 
+## Unsupervised learning protocol
+
+1. Do K-nearest once on the image
+2. Use the edge_score to calculate the inital backgroundcentroid
+3. Find the oposite, and make it a foregroudcentroid
+4. Run K-nearest n number of times.
+
 ## Code documentation
 
 ### Dev tools
@@ -33,11 +40,3 @@ python main.py
 ### Other
 
 -   If no dimension is writen, 1d is implied.
-
-## Unsupervised learning protocol
-
-1. Do K-nearest once on the image
-2. Use the edge_score to calculate the inital backgroundcentroid
-3. Find the oposite, and make it a foregroudcentroid
-4. Run K-nearest n number of times.
-5. Try to use positional information from current state of the the initial background and foreground centroids, to segment the image
