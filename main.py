@@ -2,11 +2,11 @@ from src.services.image_loader import load_image
 from src.services.image_converter import (
     rgb_2d_to_pixelvectors,
     pixelvectors_and_centroids_to_rgb_2d,
+    rescale_image,
 )
 from src.services.cam import cam
 from src.modules.k_means import initialize_centroids_randomly, do_k_means
 from src.modules.edge_score import total_edge_scores
-from skimage.transform import rescale
 
 import matplotlib as mpl
 import numpy as np
@@ -14,8 +14,8 @@ import numpy as np
 mpl.rcParams["figure.dpi"] = 100
 import matplotlib.pyplot as plt
 
-centroid_count = 4
-initial_iterations = 10
+centroid_count = 6
+initial_iterations = 1
 iterations = 10
 
 
@@ -33,13 +33,13 @@ def main():
     im4 = ax4.imshow(np.zeros((300, 300, 3)))
     while True:
         # load the image
-        image_rgb_2d = my_cam.getCurrentImage()
-        # image_rgb_2d = load_image("gates")
+        # image_rgb_2d = my_cam.getCurrentImage()
+        image_rgb_2d, image_shape = rescale_image(load_image("gates.jpg"), 200)
+        correct_image_rgba_2d, _ = rescale_image(load_image("gates.png"), 200)
 
         (
             image_pixels_lab_1d,
-            image_rgb_2d_rescaled,
-            image_shape,
+            image_rgb_2d,
         ) = rgb_2d_to_pixelvectors(image_rgb_2d)
 
         # initialize centroids and do initial k-means
@@ -60,8 +60,8 @@ def main():
 
         # save the background and foregroudn centroids
         centroids_argsorted = np.argsort(edge_score)
-        background_centroid_indexs = centroids_argsorted[:2]
-        foreground_centroid_indexs = centroids_argsorted[-2:]
+        background_centroid_indexs = centroids_argsorted[:3]
+        foreground_centroid_indexs = centroids_argsorted[-3:]
 
         # continue doing k-means
         (
@@ -73,9 +73,18 @@ def main():
 
         # show the image with the background removed
         image_rgba = np.zeros((len(pixels_to_centroidindex), 4))
-        for i, pixel in enumerate(image_rgb_2d_rescaled.reshape(-1, 3)):
+        for i, pixel in enumerate(image_rgb_2d.reshape(-1, 3)):
             if pixels_to_centroidindex[i] in foreground_centroid_indexs:
                 image_rgba[i] = list(pixel) + [1.0]
+
+        # check for accuracy
+
+        image_alpha = image_rgba[:, 3]
+        correct_image_alpha = correct_image_rgba_2d.reshape(-1, 4)[:, 3]
+
+        incorrect_alpha = np.size(np.where(image_alpha != correct_image_alpha))
+        alpha_accuracy = abs(1 - incorrect_alpha / np.size(image_alpha))
+        print(alpha_accuracy)
 
         im4.set_data(image_rgba.reshape(image_shape[0], image_shape[1], 4))
 

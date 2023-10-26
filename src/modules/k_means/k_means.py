@@ -25,10 +25,10 @@ def initialize_centroids_randomly(image_pixels_lab, centroid_count):
         centroids: text
 
     """
-    np.random.seed(42)
+    # np.random.seed(42)
     centroids = np.array(
         [
-            image_pixels_lab.mean(0) + (np.random.randn(3) / 10)
+            image_pixels_lab.mean(0) + (np.random.randn(3) * 1)
             for _ in range(centroid_count)
         ]
     )

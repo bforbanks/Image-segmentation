@@ -6,7 +6,7 @@ class TestImageLoaderFunctions(unittest.TestCase):
         from src.services.image_loader import load_image
 
         # test the add function from edgescore
-        load_image("gates")
+        load_image("gates.jpg")
 
 
 if __name__ == "__main__":

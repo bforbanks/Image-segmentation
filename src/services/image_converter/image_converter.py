@@ -19,17 +19,19 @@ def rgb_2d_to_pixelvectors(image_rgb_2d):
         The image in Lab format. Same dimensions as input.
     image_shape :
     """
-    image_width = 200
-    image_rgb_2d = rescale(
-        image_rgb_2d,
-        image_width / image_rgb_2d.shape[0],
+    pixelvector = rgb2lab(image_rgb_2d).reshape(-1, 3)
+    return (pixelvector, image_rgb_2d)
+
+
+def rescale_image(image, image_width):
+    image_scaled = rescale(
+        image,
+        image_width / image.shape[0],
         mode="reflect",
         channel_axis=2,
         anti_aliasing=True,
     )
-    image_shape = image_rgb_2d.shape
-    pixelvector = rgb2lab(image_rgb_2d).reshape(-1, 3)
-    return (pixelvector, image_rgb_2d, image_shape)
+    return (image_scaled, image_scaled.shape)
 
 
 def pixelvectors_and_centroids_to_rgb_2d(
